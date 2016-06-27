@@ -10,6 +10,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	
     	UtilityPrograms.UtilityProgramsButtons();
+    	RobotMap.Camera_Config();
 
     }
 

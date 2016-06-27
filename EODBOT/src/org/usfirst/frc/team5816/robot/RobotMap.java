@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5816.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -16,6 +17,7 @@ public class RobotMap {
 	static RobotDrive drive1, drive2, drive3;
 	static Encoder encoder1, encoder2;
 	static SmartDashboard dashboard;
+	static CameraServer camera0, camera1;
 	
 	static int cPort = 0;
 	static int sPort = 0;
@@ -29,6 +31,9 @@ public class RobotMap {
 	static int e1Port2 = 1;
 	static int e2Port1 = 2;
 	static int e2Port2 = 3;
+	
+	static String Camera0Port = "cam0";
+	static String Camera1Port = "cam1";
 	
 	static double lowSpeed = 0.33;
 	static double mediumSpeed = 0.66;
@@ -83,6 +88,15 @@ public class RobotMap {
 		dashboard.putBoolean("Compressor On: ", compressor.enabled());
 		dashboard.putBoolean("Solenoid Activated: ", solenoid.get());
 		UtilityPrograms.UtilityProgramsInit();
+		
+	}
+	
+	public static void Camera_Config() {
+		
+		camera0.startAutomaticCapture(Camera0Port);
+		camera1.startAutomaticCapture(Camera1Port);
+		camera0.setQuality(50);
+		camera1.setQuality(50);
 		
 	}
 	
