@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -72,13 +73,13 @@ public class RobotMap {
 	public static void SpeedController_Config() {
 		
 		//Initializes the motors to their ports.
-		leftMotorTop = new VictorSP(lMTPort);
-		leftMotorBack = new VictorSP(lMBPort);
-		leftMotorFront = new VictorSP(lMFPort);
+		leftMotorTop = new Talon(lMTPort);
+		leftMotorBack = new Talon(lMBPort);
+		leftMotorFront = new Talon(lMFPort);
 		
-		rightMotorTop = new VictorSP(rMTPort);
-		rightMotorBack = new VictorSP(rMBPort);
-		rightMotorFront = new VictorSP(rMFPort);
+		rightMotorTop = new Talon(rMTPort);
+		rightMotorBack = new Talon(rMBPort);
+		rightMotorFront = new Talon(rMFPort);
 		
 	}
 	
@@ -134,7 +135,7 @@ public class RobotMap {
 	public static void speedButtonConfig() {
 		
 		//Checks to see if the lowSpeedButton is pressed.
-		if (OI.lowSpeedButton) {
+		/*if (OI.lowSpeedButton) {
 			//Sets the max speed to lowSpeed.
 			drive1.setMaxOutput(lowSpeed);
 			drive2.setMaxOutput(lowSpeed);
@@ -151,7 +152,7 @@ public class RobotMap {
 			drive1.setMaxOutput(highSpeed);
 			drive2.setMaxOutput(highSpeed);
 			drive3.setMaxOutput(highSpeed);
-		}
+		}*/
 		
 	}
 	

@@ -9,7 +9,7 @@ public class OI {
 	//Defines the joysticks as Joysticks.
 	static Joystick leftJoystick, rightJoystick, XboxController;
 	//Creates variables for buttons, used later.
-	static boolean lowSpeedButton, mediumSpeedButton, highSpeedButton, lowGearButton, highGearButton;
+	static boolean lowGearButton, highGearButton;
 	//Creates variables for the ports the Joysticks plug in to.
 	static int leftJoystickPort = 0;
 	static int rightJoystickPort = 1;
@@ -29,12 +29,12 @@ public class OI {
 	public void joystickButtons() {
 		
 		//Sets the variables created above to actual buttons on the joysticks.
-		lowSpeedButton = leftJoystick.getRawButton(1);
-		mediumSpeedButton = leftJoystick.getRawButton(2);
-		highSpeedButton = leftJoystick.getRawButton(3);
+		//lowSpeedButton = leftJoystick.getRawButton(1);
+		//mediumSpeedButton = leftJoystick.getRawButton(2);
+		//highSpeedButton = leftJoystick.getRawButton(3);
 		
-		lowGearButton = rightJoystick.getRawButton(1);
-		highGearButton = rightJoystick.getRawButton(2);
+		lowGearButton = leftJoystick.getRawButton(1);
+		highGearButton = rightJoystick.getRawButton(1);
 		
 	}
 
