@@ -19,7 +19,7 @@ public class RobotMap {
 	//Creates the solenoid.
 	static Solenoid solenoid;
 	//Creates the Motors.
-	static SpeedController leftMotorTop, leftMotorBack, leftMotorFront, rightMotorTop, rightMotorBack, rightMotorFront;
+	static SpeedController leftMotorTop, leftMotorBack, leftMotorFront, rightMotorTop, rightMotorBack, rightMotorFront, armMotor;
 	//Creates the RobotDrive types.
 	static RobotDrive drive1, drive2, drive3;
 	//Creates the encoders.
@@ -38,6 +38,7 @@ public class RobotMap {
 	static int rMTPort = 3;
 	static int rMBPort = 4;
 	static int rMFPort = 5;
+	static int aPort = 6;
 	static int e1Port1 = 0;
 	static int e1Port2 = 1;
 	static int e2Port1 = 2;
@@ -80,6 +81,8 @@ public class RobotMap {
 		rightMotorTop = new Talon(rMTPort);
 		rightMotorBack = new Talon(rMBPort);
 		rightMotorFront = new Talon(rMFPort);
+		
+		armMotor = new Talon(aPort);
 		
 	}
 	
@@ -181,6 +184,11 @@ public class RobotMap {
 		drive2.tankDrive(OI.leftJoystick, OI.rightJoystick);
 		drive3.tankDrive(OI.leftJoystick, OI.rightJoystick);
 		
+	}
+	
+	public static void armDriving() {
+		
+		armMotor.set(OI.XboxController.getY());
 	}
 
 }
