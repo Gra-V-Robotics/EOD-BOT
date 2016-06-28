@@ -11,18 +11,13 @@ public class OI {
 	static int XboxControllerPort = 2;
 
 	public void joystickInit() {
-
 		leftJoystick = new Joystick(leftJoystickPort);
 		rightJoystick = new Joystick(rightJoystickPort);
 		XboxController = new Joystick(XboxControllerPort);
-		
 	}
 
 	public void joystickButtons() {
-		
 		lowGearButton = leftJoystick.getRawButton(1);
 		highGearButton = rightJoystick.getRawButton(1);
-		
 	}
-
 }

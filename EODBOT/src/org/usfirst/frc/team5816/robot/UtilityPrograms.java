@@ -13,22 +13,17 @@ public class UtilityPrograms {
 	static SendableChooser chooser;
 
 	public static void UtilityProgramsButtons() {
-
 		chooser = new SendableChooser();
 		chooser.addDefault("Default Test Program", defaultTestProgram);
 		chooser.addObject("Secondary Test Program", secondaryTestProgram);
 		chooser.addObject("Tertiary Test Program", tertiaryTestProgram);
 		SmartDashboard.putData("Utility Program Choices", chooser);
-		
 	}
 
 	public static void UtilityProgramsControl() {
-
 		switch(utilityProgramSelected) {
 		case secondaryTestProgram:
-			RobotMap.drive1.drive(1.0, 0.0);
-			RobotMap.drive2.drive(1.0, 0.0);
-			RobotMap.drive3.drive(1.0, 0.0);
+			RobotMap.drive.drive(1.0, 0.0);
 			break;
 		case tertiaryTestProgram:
 			RobotMap.solenoid.set(true);
@@ -36,18 +31,12 @@ public class UtilityPrograms {
 			RobotMap.solenoid.set(false);
 			break;
 		case defaultTestProgram:
-			RobotMap.drive1.drive(-1.0, 0.0);
-			RobotMap.drive2.drive(-1.0, 0.0);
-			RobotMap.drive3.drive(-1.0, 0.0);
+			RobotMap.drive.drive(-1.0, 0.0);
 		}
-		
 	}
 
 	public static void UtilityProgramsInit() {
-
 		utilityProgramSelected = (String) chooser.getSelected();
 		System.out.println("Utility Program Selected: " + utilityProgramSelected);
-		
 	}
-
 }

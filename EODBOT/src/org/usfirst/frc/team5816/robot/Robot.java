@@ -8,44 +8,31 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
     public void robotInit() {
-    	
     	UtilityPrograms.UtilityProgramsButtons();
     	RobotMap.Camera_Config();
-
     }
 
     public void autonomousInit() {
-
     }
 
     public void autonomousPeriodic() {
-
     }
 
     public void teleopInit() {
-    	
     	RobotMap.Dashboard_Config();
     	RobotMap.Compressor_Config();
     	RobotMap.Encoder_Config();
-    	RobotMap.Solenoid_Config();
-    	RobotMap.DriveTrain_Config();
-    	RobotMap.SpeedController_Config();
-    	
+    	RobotMap.Solenoid_Config();	
     }
 
     public void teleopPeriodic() {
-
     	RobotMap.driver();
-    	RobotMap.manipulaltor();
-        
+    	RobotMap.manipulator();
     }
 
     public void testInit() {
-    	
     }
 
     public void testPeriodic() {
-    
     }
-    
 }
