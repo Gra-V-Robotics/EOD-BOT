@@ -12,10 +12,12 @@ public class Robot extends IterativeRobot {
     	RobotMap.Camera_Config();
     }
 
-    public void autonomousInit() {
+    public void autonomousInit() {    	
+    	AutonomousMode.autonomousInititialize();
     }
 
     public void autonomousPeriodic() {
+    	AutonomousMode.autonomousRunning();
     }
 
     public void teleopInit() {
