@@ -3,6 +3,7 @@ package org.usfirst.frc.team5816.robot;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -38,6 +39,10 @@ public class RobotMap {
 	static String Camera0Port = "cam0";
 	static String Camera1Port = "cam1";
 	static double power = 0.3;
+	
+	static double theoreticalDistance;
+	static double distanceConstant;
+	static double driveDistance;
 
 	public static void Compressor_Config() {
 		compressor = new Compressor(cPort);
@@ -55,13 +60,17 @@ public class RobotMap {
 	}
 
 	public static void Encoder_Config() {
-		encoder1 = new Encoder(e1Port1, e1Port2);
-		encoder2 = new Encoder(e2Port1, e2Port2);
+		encoder1 = new Encoder(e1Port1, e1Port2, true, EncodingType.k4X);
+		encoder2 = new Encoder(e2Port1, e2Port2, true, EncodingType.k4X);
 	}
 
 	public static void Dashboard_Config() {
+		//Figure out encoder count & Distance
 		dashboard.putBoolean("Compressor On: ", compressor.enabled());
 		dashboard.putBoolean("Solenoid Activated: ", solenoid.get());
+		dashboard.putNumber("Left Encoder Value: ", encoder1.get());
+		dashboard.putNumber("Right Encoder Value: ", encoder2.get());
+		dashboard.putNumber("Drive To Distance: ", driveDistance);
 		UtilityPrograms.UtilityProgramsInit();
 	}
 
@@ -76,7 +85,7 @@ public class RobotMap {
 		compressor.start();
 		drive.tankDrive(OI.leftJoystick, OI.rightJoystick);
 	}
-	
+
 	public static void manipulator() {
 		if (OI.highGearButton) {
 			solenoid.set(true);
@@ -91,5 +100,15 @@ public class RobotMap {
 		} else {
 			motorActuator.set(0);
 		}
+	}
+	
+	public static void theoreticalDriveToDistanceMath() {
+		theoreticalDistance = encoder1.get() / distanceConstant;
+	}
+	
+	public static void theoreticalDriveToDistance(double d) {
+		double driveVariable = 0;
+		driveDistance = d;
+		driveDistance *= driveVariable;
 	}
 }
