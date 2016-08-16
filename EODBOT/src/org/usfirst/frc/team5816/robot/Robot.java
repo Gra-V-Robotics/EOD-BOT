@@ -6,7 +6,7 @@ public class Robot extends IterativeRobot {
 
     public void robotInit() {
     	//RobotMap.init();
-    	RobotMap.arcadeControlInit();
+    	RobotMap.arcadeTestInit();
     }
 
     public void autonomousInit() {
@@ -22,7 +22,7 @@ public class Robot extends IterativeRobot {
 
     public void teleopPeriodic() {
     	//RobotMap.teleop();
-    	RobotMap.arcadeControlTeleOp();
+    	RobotMap.arcadeTestTeleOp();
     }
 
     public void testInit() {
