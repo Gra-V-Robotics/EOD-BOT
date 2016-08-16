@@ -91,4 +91,46 @@ public class RobotMap {
 		}
 	}
 	
+	public static void arcadeTestInit() {
+		frontLeft = new CANTalon(frontLeftPort);
+		backLeft = new CANTalon(backLeftPort);
+		slaveLeft = new CANTalon(slaveLeftPort);
+		frontRight = new CANTalon(frontRightPort);
+		backRight = new CANTalon(backRightPort);
+		slaveRight = new CANTalon(slaveRightPort);
+		
+		frontLeft.setInverted(false);
+		backLeft.setInverted(true);
+		slaveLeft.setInverted(true);
+		frontRight.setInverted(false);
+		backRight.setInverted(true);
+		slaveRight.setInverted(false);
+		
+		leftJoystick = new Joystick(0);
+		rightJoystick = new Joystick(1);
+		
+		frontLight = new Relay(frontLightPort, Relay.Direction.kForward);
+		
+		drive = new RobotDrive(frontLeft, backLeft, frontRight, backRight)
+		
+		slaveLeft.changeControlMode(TalonControlMode.Follower);
+		slaveRight.changeControlMode(TalonControlMode.Follower);
+		
+		slaveLeft.set(frontLeftPort);
+		slaveRight.set(frontRightPort);
+	}
+	
+	public static void arcadeTestTeleOp() {
+		drive.arcadeDrive(leftJoystick);
+		if (rightJoystick.getRawButton(1) {
+			lightConst = lightConst * -1;
+			Timer.delay(0.1);
+		}
+		
+		if (lightConst == 1) {
+			frontLight.set(Relay.Value.kOn);
+		} else if (lightConst == -1) {
+			frontLight.set(Relay.Value.kOff);
+		}
+	}
 }
