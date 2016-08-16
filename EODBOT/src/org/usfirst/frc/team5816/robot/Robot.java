@@ -5,11 +5,12 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 public class Robot extends IterativeRobot {
 
     public void robotInit() {
-    	RobotMap.init();
+    	//RobotMap.init();
+    	RobotMap.arcadeControlInit();
     }
 
     public void autonomousInit() {
-    	RobotMap.drive.drive(0.05, 0);
+
     }
 
     public void autonomousPeriodic() {
@@ -20,7 +21,8 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopPeriodic() {
-    	RobotMap.teleop();
+    	//RobotMap.teleop();
+    	RobotMap.arcadeControlTeleOp();
     }
 
     public void testInit() {
